@@ -1,26 +1,40 @@
+import threading
+import time
+
 import mujoco
 import mujoco.viewer
-import time
 import numpy as np
+from spine import Namespace, Subscriber
+
+from model import XboxController
 
 model = mujoco.MjModel.from_xml_path("model.xml")
 data = mujoco.MjData(model)
 
-def set_joint(name, angle):
-    joint_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_JOINT, name)
-    data.qpos[joint_id] = angle
+
+ns = Namespace("rime", "ppap")
+sub = Subscriber(ns, "xbox-controller", XboxController)
+
+
+def set_joints():
+    while True:
+        joint_id = mujoco.mj_name2id(
+            model, mujoco.mjtObj.mjOBJ_JOINT, "r1_meca_axis_1_joint"
+        )
+        input = sub.get_data()
+        print(input.LeftStick.X)
+        joint_val = (input.LeftStick.X / 32767) * np.pi
+        # print(joint_val)
+        data.qpos[joint_id] = joint_val
+
 
 t = 0
 with mujoco.viewer.launch_passive(model, data) as viewer:
+    my_thread = threading.Thread(target=set_joints)
+    my_thread.start()
+
     while viewer.is_running():
         step_start = time.time()
-
-        # Slowly oscillate r1 axis 1 between -45 and +45 degrees
-        angle = np.deg2rad(45) * np.sin(t * 0.5)  # 0.5 controls speed
-        set_joint("r1_meca_axis_1_joint", angle)
-        set_joint("r2_meca_axis_4_joint", -angle)
-        set_joint("r1_meca_axis_3_joint", -angle/2)
-
 
         mujoco.mj_forward(model, data)
         viewer.sync()
