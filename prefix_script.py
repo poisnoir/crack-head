@@ -5,7 +5,16 @@ def extract_and_prefix(input_file, body_output, prefix, pos, euler=None):
     tree = ET.parse(input_file)
     root = tree.getroot()
 
-    name_attrs = ["name", "joint", "body", "geom", "site", "mesh", "material", "texture"]
+    name_attrs = [
+        "name",
+        "joint",
+        "body",
+        "geom",
+        "site",
+        "mesh",
+        "material",
+        "texture",
+    ]
 
     for elem in root.iter():
         for attr in name_attrs:
@@ -33,9 +42,14 @@ def extract_and_prefix(input_file, body_output, prefix, pos, euler=None):
 
     return root.find("asset")
 
-def build_scene(robot_xml, robot_dir="meca_500", output_xml="model.xml"):
-    asset1 = extract_and_prefix(robot_xml, f"{robot_dir}/meca_500_r1.xml", "r1", [-0.5, 0, 0])
-    asset2 = extract_and_prefix(robot_xml, f"{robot_dir}/meca_500_r2.xml", "r2", [0, 0, 0])
+
+def build_scene(robot_xml, robot_dir="arctos", output_xml="model.xml"):
+    asset1 = extract_and_prefix(
+        robot_xml, f"{robot_dir}/meca_500_r1.xml", "r1", [-0.5, 0, 0]
+    )
+    asset2 = extract_and_prefix(
+        robot_xml, f"{robot_dir}/meca_500_r2.xml", "r2", [0, 0, 0]
+    )
 
     mujoco_el = ET.Element("mujoco", model="dual_meca_scene")
 
@@ -44,7 +58,9 @@ def build_scene(robot_xml, robot_dir="meca_500", output_xml="model.xml"):
         if asset is not None:
             for item in asset:
                 if "file" in item.attrib:
-                    item.attrib["file"] = item.attrib["file"].replace("./", f"{robot_dir}/")
+                    item.attrib["file"] = item.attrib["file"].replace(
+                        "./", f"{robot_dir}/"
+                    )
                 combined_asset.append(item)
 
     worldbody = ET.SubElement(mujoco_el, "worldbody")
@@ -62,7 +78,4 @@ def build_scene(robot_xml, robot_dir="meca_500", output_xml="model.xml"):
     print(f"Scene written: {output_xml}")
 
 
-
-
-
-build_scene("meca_500/meca_500.xml")
+build_scene("arctos/assets/arctos.xml")

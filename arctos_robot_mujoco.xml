@@ -1,0 +1,219 @@
+<mujoco model="arctos_urdf">
+  <compiler angle="radian" />
+
+  <asset>
+    <mesh
+            name="base_link"
+            content_type="model/stl"
+            file="./meshes/base_link.stl"
+            scale="0.001 0.001 0.001"
+        />
+    <mesh
+            name="Link_1_1"
+            content_type="model/stl"
+            file="./meshes/Link_1_1.stl"
+            scale="0.001 0.001 0.001"
+        />
+    <mesh
+            name="Link_2_1"
+            content_type="model/stl"
+            file="./meshes/Link_2_1.stl"
+            scale="0.001 0.001 0.001"
+        />
+    <mesh
+            name="Link_3_1"
+            content_type="model/stl"
+            file="./meshes/Link_3_1.stl"
+            scale="0.001 0.001 0.001"
+        />
+    <mesh
+            name="Link_4_1"
+            content_type="model/stl"
+            file="./meshes/Link_4_1.stl"
+            scale="0.001 0.001 0.001"
+        />
+    <mesh
+            name="Link_5_1"
+            content_type="model/stl"
+            file="./meshes/Link_5_1.stl"
+            scale="0.001 0.001 0.001"
+        />
+    <mesh
+            name="Gripper_1"
+            content_type="model/stl"
+            file="./meshes/Gripper_1.stl"
+            scale="0.001 0.001 0.001"
+        />
+    <mesh
+            name="Link_6_1"
+            content_type="model/stl"
+            file="./meshes/Link_6_1.stl"
+            scale="0.001 0.001 0.001"
+        />
+    <mesh
+            name="Left_jaw_1"
+            content_type="model/stl"
+            file="./meshes/Left_jaw_1.stl"
+            scale="0.001 0.001 0.001"
+        />
+    <mesh
+            name="Right_jaw_1"
+            content_type="model/stl"
+            file="./meshes/Right_jaw_1.stl"
+            scale="0.001 0.001 0.001"
+        />
+  </asset>
+
+  <worldbody>
+    <geom type="mesh" rgba="0.776471 0.776471 0.776471 1" mesh="base_link" />
+    <body name="Link_1_1" pos="0 0.000529 0.111">
+      <inertial
+                pos="0.00221889 -0.00486344 0.0854684"
+                quat="0.684221 0.162893 0.0161784 0.710666"
+                mass="10.3947"
+                diaginertia="0.0746734 0.0615264 0.0554832"
+            />
+      <joint name="joint1" pos="0 0 0" axis="0 0 1" />
+      <geom
+                pos="0 -0.000529 -0.111"
+                quat="1 0 0 0"
+                type="mesh"
+                rgba="0.776471 0.776471 0.776471 1"
+                mesh="Link_1_1"
+            />
+      <body name="Link_2_1" pos="-0.05713 -0.020885 0.178378">
+        <inertial
+                    pos="0.0553143 0.0108436 0.114124"
+                    quat="0.705835 -0.0180491 0.00517452 0.708127"
+                    mass="11.5581"
+                    diaginertia="0.144738 0.128595 0.0443268"
+                />
+        <joint name="joint2" pos="0 0 0" axis="1 0 0" />
+        <geom
+                    pos="0.05713 0.020356 -0.289378"
+                    quat="1 0 0 0"
+                    type="mesh"
+                    rgba="0.776471 0.776471 0.776471 1"
+                    mesh="Link_2_1"
+                />
+        <body name="Link_3_1" pos="0.10013 0.001311 0.261007">
+          <inertial
+                        pos="-0.0417837 -0.0391303 0.0122176"
+                        quat="0.790559 0.5947 0.0870194 -0.117368"
+                        mass="3.60141"
+                        diaginertia="0.0125235 0.0122062 0.00647223"
+                    />
+          <joint name="joint3" pos="0 0 0" axis="-1 0 0" />
+          <geom
+                        pos="-0.043 0.019045 -0.550385"
+                        quat="1 0 0 0"
+                        type="mesh"
+                        rgba="0.776471 0.776471 0.776471 1"
+                        mesh="Link_3_1"
+                    />
+          <body name="Link_4_1" pos="-0.042999 -0.139695 0.021705">
+            <inertial
+                            pos="0.00021105 -0.0602883 -0.000540823"
+                            quat="0.513594 0.486394 -0.519065 0.479806"
+                            mass="3.78529"
+                            diaginertia="0.0173639 0.0116246 0.0114895"
+                        />
+            <joint name="joint4" pos="0 0 0" axis="0 1 0" />
+            <geom
+                            pos="-1e-06 0.15874 -0.57209"
+                            quat="1 0 0 0"
+                            type="mesh"
+                            rgba="0.776471 0.776471 0.776471 1"
+                            mesh="Link_4_1"
+                        />
+            <body name="Link_5_1" pos="-0.039012 -0.121187 -0.001774">
+              <inertial
+                                pos="0.0397291 -0.0126624 0.000792919"
+                                quat="0.505014 0.466494 0.543912 0.481149"
+                                mass="0.831981"
+                                diaginertia="0.000959166 0.000906596 0.000731237"
+                            />
+              <joint name="joint5" pos="0 0 0" axis="-1 0 0" />
+              <geom
+                                pos="0.039011 0.279927 -0.570316"
+                                quat="1 0 0 0"
+                                type="mesh"
+                                rgba="0.776471 0.776471 0.776471 1"
+                                mesh="Link_5_1"
+                            />
+              <body name="Link_6_1" pos="0.039204 -0.033835 0">
+                <inertial
+                                    pos="0.0082086 -0.0134515 -0.000745211"
+                                    quat="0.750608 -0.0167355 -0.00875287 0.660478"
+                                    mass="0.684483"
+                                    diaginertia="0.000608926 0.000447794 0.00033624"
+                                />
+                <joint name="joint6" pos="0 0 0" axis="0 1 0" />
+                <geom
+                                    pos="-0.000193 0.313762 -0.570316"
+                                    quat="1 0 0 0"
+                                    type="mesh"
+                                    rgba="0.776471 0.776471 0.776471 1"
+                                    mesh="Link_6_1"
+                                />
+                <geom
+                                    pos="-0.000193 0.313762 -0.570316"
+                                    quat="1 0 0 0"
+                                    type="mesh"
+                                    rgba="0.776471 0.776471 0.776471 1"
+                                    mesh="Gripper_1"
+                                />
+                <body name="Left_jaw_1" pos="0.007741 -0.046083 0.029551">
+                  <inertial
+                                        pos="-0.0111427 -0.00969244 -0.00938579"
+                                        quat="0.40896 0.576846 -0.40896 0.576846"
+                                        mass="0.073696"
+                                        diaginertia="1.4e-05 1.17016e-05 5.29844e-06"
+                                    />
+                  <joint
+                                        name="jaw1"
+                                        pos="0 0 0"
+                                        axis="0 0 -1"
+                                        type="slide"
+                                        range="0 0.015"
+                                        actuatorfrcrange="-100 100"
+                                    />
+                  <geom
+                                        pos="-0.007934 0.359845 -0.599867"
+                                        quat="1 0 0 0"
+                                        type="mesh"
+                                        rgba="0.776471 0.776471 0.776471 1"
+                                        mesh="Left_jaw_1"
+                                    />
+                </body>
+                <body name="Right_jaw_1" pos="0.007741 -0.046083 -0.030449">
+                  <inertial
+                                        pos="-0.0082891 -0.00976854 0.00939551"
+                                        quat="0.466127 0.365216 -0.615147 0.520516"
+                                        mass="0.073129"
+                                        diaginertia="1.43132e-05 1.08838e-05 5.80296e-06"
+                                    />
+                  <joint
+                                        name="jaw2"
+                                        pos="0 0 0"
+                                        axis="0 0 1"
+                                        type="slide"
+                                        range="0 0.015"
+                                        actuatorfrcrange="-100 100"
+                                    />
+                  <geom
+                                        pos="-0.007934 0.359845 -0.539867"
+                                        quat="1 0 0 0"
+                                        type="mesh"
+                                        rgba="0.776471 0.776471 0.776471 1"
+                                        mesh="Right_jaw_1"
+                                    />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
