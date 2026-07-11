@@ -1,0 +1,17 @@
+.{
+    .name = .crack_head,
+    .version = "0.0.1",
+    .fingerprint = 0xffd74408da998f46,
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .spine_zig = .{
+            .url = "git+https://github.com/poisnoir/spine-zig?ref=v0.1.0#d169a58e071fd41c156c23a8867a099d367a19db",
+            .hash = "spine_zig-0.1.0-Mkx7Yld8AQBt-i2H3rgaLhE-IBisth6uxle28apnN3HA",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
