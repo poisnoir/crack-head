@@ -11,7 +11,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    const spine_zig_mod = spine_zig_dep.module("spine_zig");
+    const spine_zig_mod = spine_zig_dep.module("spine");
 
     const exe = b.addExecutable(.{
         .name = "crack-head",

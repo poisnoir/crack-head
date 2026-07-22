@@ -5,8 +5,8 @@
     .minimum_zig_version = "0.16.0",
     .dependencies = .{
         .spine_zig = .{
-            .url = "git+https://github.com/poisnoir/spine-zig?ref=v0.1.0#d169a58e071fd41c156c23a8867a099d367a19db",
-            .hash = "spine_zig-0.1.0-Mkx7Yld8AQBt-i2H3rgaLhE-IBisth6uxle28apnN3HA",
+            .url = "git+https://github.com/poisnoir/spine-go?ref=v0.1.2#62400efcaece7ceffe4bcdea025719f09e3980f0",
+            .hash = "spine-0.1.2-alWBbnWlAgAF6Iyf3LEXV8mk82VJndRTRdgZBZUiRBXY",
         },
     },
     .paths = .{
