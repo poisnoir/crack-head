@@ -1,7 +1,7 @@
 # crack-head
 
 MuJoCo simulation and visualizer for the Arctos arm, driven live over
-[spine](https://github.com/poisnoir/spine-go). It's the last stage of the
+[spine](https://github.com/poisnoir/spine). It's the last stage of the
 `keyboard-controller` → `kinematic-engine` → `crack-head` pipeline: the
 kinematics engine publishes joint angles on the `"joints"` topic, and
 crack-head subscribes to them and renders the arm in MuJoCo as they arrive.
